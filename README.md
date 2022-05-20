@@ -47,6 +47,8 @@
 
 ## deployment.
 
+### manual.
+
 Запустите локальный сервер postgres 127.0.0.1:5432.<br>
 
 ```commandline
@@ -61,7 +63,7 @@ $ pip install -r requirements.txt
 ```commandline
 python main.py
 ```
-## docker.
+###  docker.
 ```commandline
 $ docker-compose up 
 ```
