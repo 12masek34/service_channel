@@ -1,7 +1,7 @@
 from time import sleep
 
 from database.models import create_db
-from app import main, check_orders_date
+from app import main, check_and_send_orders_to_telegram
 
 ONE_DAY = 1440
 ONE_MINUTE = 60
@@ -17,4 +17,4 @@ if __name__ == '__main__':
         count_minutes += 1
 
         if count_minutes == ONE_DAY:
-            check_orders_date()
+            check_and_send_orders_to_telegram()

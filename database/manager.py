@@ -5,7 +5,10 @@ class DBManager:
     def __init__(self):
         self.db: Session = get_db()
 
-    def add_table_to_db(self, table: list[list]):
+    def add_table_to_db(self, table: list[list]) -> None:
+        """
+        Добавляет данные в БД. Если данные не консистентны (отсутствует какой-то столбец), эта запись пропускается.
+        """
         for raw in table:
             try:
                 obj = Orders(id=raw[0],

@@ -9,7 +9,7 @@ load_dotenv()
 
 
 class MyRequest:
-    MAX_ROWS = 100
+    MAX_ROWS = 1000
 
     @staticmethod
     def get_course_usd_from_cb() -> int:

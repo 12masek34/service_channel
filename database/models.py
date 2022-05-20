@@ -1,10 +1,8 @@
 import os
-import datetime
-from typing import Iterator
 
-from sqlalchemy import create_engine, Column, String, Integer, DateTime, ForeignKey, MetaData, BigInteger
+from sqlalchemy import create_engine, Column, Integer, DateTime, MetaData, BigInteger
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, Session, backref, sessionmaker
+from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy_utils import database_exists, create_database
 from dotenv import load_dotenv
 
@@ -31,6 +29,9 @@ def create_db() -> None:
 
 
 def drop_db() -> None:
+    """
+    Только для разработки.
+    """
     Base.metadata.drop_all(engine)
 
 
@@ -41,4 +42,3 @@ class Orders(Base):
     price_usd = Column(Integer())
     delivery_time = Column(DateTime())
     price_rub = Column(Integer())
-

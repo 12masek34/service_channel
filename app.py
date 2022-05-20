@@ -12,7 +12,7 @@ def main():
     table_manager.db_manager.add_table_to_db(table)
 
 
-def check_orders_date():
+def check_and_send_orders_to_telegram():
     table_manager = TableManager()
     orders = table_manager.db_manager.get_order_from_db_all()
     overdue_orders = table_manager.time_manager.check_overdue_orders(orders)
