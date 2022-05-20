@@ -1,11 +1,14 @@
-from pprint import pprint
+import os
 
 import httplib2
 import apiclient.discovery
 from oauth2client.service_account import ServiceAccountCredentials
+from dotenv import load_dotenv
+
+load_dotenv()
 
 CREDENTIALS_FILE = 'creds.json'
-spreadsheet_id = '10CHCb0Aae_mvmpdCfUqhk7Z-T1BLHMgkca84dmA8bS0'
+spreadsheet_id = os.getenv('SPREADSHEET_ID')
 
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
     CREDENTIALS_FILE,
@@ -13,15 +16,6 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(
      'https://www.googleapis.com/auth/drive'])
 httpAuth = credentials.authorize(httplib2.Http())
 service = apiclient.discovery.build('sheets', 'v4', http=httpAuth)
-
-
-values = service.spreadsheets().values().get(
-    spreadsheetId=spreadsheet_id,
-    range='A1:E100',
-    majorDimension='ROWS'
-).execute()
-pprint(values)
-
 
 # values = service.spreadsheets().values().batchUpdate(
 #     spreadsheetId=spreadsheet_id,
