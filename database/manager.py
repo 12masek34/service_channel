@@ -7,7 +7,8 @@ class DBManager:
 
     def add_table_to_db(self, table: list[list]) -> None:
         """
-        Добавляет данные в БД. Если данные не консистентны (отсутствует какой-то столбец), эта запись пропускается.
+        Добавляет данные в БД. Если данные не консистентны
+        (отсутствует какой-то столбец), эта запись пропускается.
         """
         for raw in table:
             try:
@@ -22,7 +23,7 @@ class DBManager:
             self.db.commit()
 
     def get_order_from_db_by_id(self, id_: int) -> Orders:
-        return self.db.query(Orders).filter(Orders.id == id_)
+        return self.db.query(Orders).filter(Orders.id == id_).all()
 
     def get_order_from_db_all(self) -> list[Orders]:
         return self.db.query(Orders).all()
