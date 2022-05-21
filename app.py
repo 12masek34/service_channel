@@ -1,5 +1,3 @@
-from pprint import pprint
-
 from service.table_manager import TableManager
 
 

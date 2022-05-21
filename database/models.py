@@ -1,10 +1,10 @@
 import os
 
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, Column, Integer, DateTime, MetaData, BigInteger
+from sqlalchemy_utils import database_exists, create_database
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import Session, sessionmaker
-from sqlalchemy_utils import database_exists, create_database
-from dotenv import load_dotenv
 
 load_dotenv()
 

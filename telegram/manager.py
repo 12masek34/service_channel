@@ -14,6 +14,3 @@ class TelegramManager:
     @staticmethod
     def send_message(message: str) -> None:
         bot.send_message(chat_id, message)
-
-
-

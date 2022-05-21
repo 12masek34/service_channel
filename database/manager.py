@@ -1,4 +1,4 @@
-from database.models import Orders, get_db, Session
+from database.models import get_db, Orders, Session
 
 
 class DBManager:
